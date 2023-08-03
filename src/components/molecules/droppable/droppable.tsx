@@ -6,7 +6,7 @@ import Word from "../../atoms/word/word";
 
 const Border = styled.div`
     display: flex;
-    width: 482px;
+    width: 800px;
     height: 90px;
     position: relative;
     word-break: break-all;
@@ -60,8 +60,6 @@ const Drop: React.FC<IDrop> = ({ items,id, isTranslate }) => {
             {(provided) => (
                 <Border ref={provided.innerRef} {...provided.droppableProps}  >
                 {isTranslate && <>
-                    <Line/>
-                    <Line/>
                     <Line/>
                 </>}
                 {items.map(({id,name}:IWord, index) => (
