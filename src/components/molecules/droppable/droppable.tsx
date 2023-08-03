@@ -6,14 +6,13 @@ import Word from "../../atoms/word/word";
 
 const Border = styled.div`
     display: flex;
-  width: 482px;
-  height: 90px;
-  position: relative;
-  word-break: break-all;
-  flex-flow: wrap;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  
+    width: 482px;
+    height: 90px;
+    position: relative;
+    word-break: break-all;
+    flex-flow: wrap;
+    margin-bottom: 50px;
+    margin-top: 50px;
 `
 
 const Line = styled.div`
@@ -41,16 +40,20 @@ const WordBackground = styled.div`
     position: absolute;
     z-index: 0;
     margin: 6px;
-
 `
 
 type IDrop = {
-    items: any;
-    id:any;
+    items: IWord[];
+    id: string;
     isTranslate:any
 }
 
-const Page: React.FC<IDrop> = ({ items,id, isTranslate }) => {
+type IWord = {
+    id: string;
+    name: string;
+}
+
+const Drop: React.FC<IDrop> = ({ items,id, isTranslate }) => {
 
     return (
         <Droppable droppableId={id} type='group' direction="horizontal">
@@ -61,9 +64,8 @@ const Page: React.FC<IDrop> = ({ items,id, isTranslate }) => {
                     <Line/>
                     <Line/>
                 </>}
-
-                {items.map((item:any, index:any) => (
-                    <Word id={item.id}key={index}  index={index}>{item.name}</Word>
+                {items.map(({id,name}:IWord, index) => (
+                    <Word id={id} key={index} index={index}>{name}</Word>
                 ))}
                 {provided.placeholder}
                 </Border>
@@ -72,4 +74,4 @@ const Page: React.FC<IDrop> = ({ items,id, isTranslate }) => {
     )
 }
 
-export default Page
+export default Drop

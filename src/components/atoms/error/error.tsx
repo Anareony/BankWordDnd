@@ -7,21 +7,21 @@ const StyledWord = styled.div`
     padding-bottom: 2px;
     margin-bottom: 20px;
     color: #F00;
-text-shadow: 1px 2px 2px 0px rgba(91, 13, 13, 0.50), -1px -2px 2px 0px #FFF;
-font-family: Roboto;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    text-shadow: 1px 2px 2px 0px rgba(91, 13, 13, 0.50), -1px -2px 2px 0px #FFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 `
-type IWords = {
+
+type IError = {
     children: string;
-
 }
-const Error: React.FC<IWords> = ({children}) => {
-      
-    return (
 
+const Error: React.FC<IError> = ({children}) => {
+    
+    return (
         <StyledWord>{children}</StyledWord>
 
 )}

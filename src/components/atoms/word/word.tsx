@@ -21,13 +21,12 @@ const Border = styled.div`
 
 type IWords = {
     children: string;
-    id: any;
-    index: any
+    id: string;
+    index: number;
 }
 
-const Word: React.FC<IWords> = ({id, children, index} ) => {
+const Word: React.FC<IWords> = ({id, children, index}) => {
       
-
     return (
         <Draggable key={id} draggableId={id} index={index}>
         {(provided) => (
